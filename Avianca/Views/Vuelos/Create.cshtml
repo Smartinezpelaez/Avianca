@@ -1,0 +1,65 @@
+﻿@model Avianca.Models.Vuelos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h6 style="text-align:center">Vuelos Avianca</h6>
+
+
+
+<form action="/Vuelos/Create" method="post">
+    <div class="form-row">
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.IdVuelo)
+            @Html.EditorFor(Model => Model.IdVuelo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.IdVuelo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.Origen)
+            @Html.EditorFor(Model => Model.Origen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.Origen, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.Destino)
+            @Html.EditorFor(Model => Model.Destino, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.Destino, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.FechayHoraSalida)
+            @Html.EditorFor(Model => Model.FechayHoraSalida, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.FechayHoraSalida, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.Clase)
+            @Html.EditorFor(Model => Model.Clase, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.Clase, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-5">
+            @Html.LabelFor(Model => Model.Precio)
+            @Html.EditorFor(Model => Model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(Model => Model.Precio, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <button type="submit" class="btn-primary">
+                    <i class=" fas fa-save"> </i>
+
+                </button>
+                @Html.ActionLink(" ", "Index", "Vuelos", null, new { @class = "btn btn-primary fas fa-arrow-circle-left" })
+            </div>
+        </div>
+    </div>
+</form>
+

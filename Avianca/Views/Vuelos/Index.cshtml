@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Avianca.Models.Vuelos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6 style="text-align:center">Vuelos Avianca</h6>
+
+<p>
+    @Html.ActionLink(" Create", "Create", "Vuelos", null, new { @class = "btn btn-primary fas fa-plus circle" })
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVuelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechayHoraSalida)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.Clase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVuelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechayHoraSalida)
+            </td>            
+            <th>
+                @Html.DisplayFor(model => item.Clase)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+
+            <td>
+                <!--Lo que se llame en Action link es una accion de tipo Get-->
+                @Html.ActionLink(" ", "Edit", "Vuelos", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-edit" })
+                @Html.ActionLink(" ", "Details", "Vuelos", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-info-circle" })
+                @Html.ActionLink(" ", "Delete", "Vuelos", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-trash" })
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

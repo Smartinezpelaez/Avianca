@@ -1,0 +1,60 @@
+﻿@model Avianca.Models.Vuelos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+<h6 style="text-align:center">Vuelos Avianca</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IdVuelo" class="control-label"></label>
+                <input asp-for="IdVuelo" class="form-control" />
+                <span asp-validation-for="IdVuelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Origen" class="control-label"></label>
+                <input asp-for="Origen" class="form-control" />
+                <span asp-validation-for="Origen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destino" class="control-label"></label>
+                <input asp-for="Destino" class="form-control" />
+                <span asp-validation-for="Destino" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechayHoraSalida" class="control-label"></label>
+                <input asp-for="FechayHoraSalida" class="form-control" />
+                <span asp-validation-for="FechayHoraSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clase" class="control-label"></label>
+                <input asp-for="Clase" class="form-control" />
+                <span asp-validation-for="Clase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary ">
+                    <i class="fas fa-save">
+                    </i>
+                </button>
+                @Html.ActionLink(" ", "Index", "Vuelos", null, new { @class = "btn btn-primary fas fa-undo-alt" })
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
