@@ -3,8 +3,11 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h6 style="text-align:center">Vuelos Avianca</h6>
+<div class="jumbotron text-center img-circle ">
+    <h1 class="bg-danger text-capitalize"> VUELOS </h1>
+    <a href="Reservas/Index">
+    </a>
+</div>
 
 <p>
     @Html.ActionLink(" Create", "Create", "Vuelos", null, new { @class = "btn btn-primary fas fa-plus circle" })
@@ -12,7 +15,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>
+            <th style="visibility:hidden">
                 @Html.DisplayNameFor(model => model.IdVuelo)
             </th>
             <th>
@@ -23,21 +26,24 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechayHoraSalida)
-            </th>           
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Clase)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
 
-            <th></th>
+            <th>action</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="visibility:hidden" >
                 @Html.DisplayFor(modelItem => item.IdVuelo)
             </td>
             <td>
@@ -48,12 +54,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechayHoraSalida)
-            </td>            
+            </td>
             <th>
                 @Html.DisplayFor(model => item.Clase)
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
 
             <td>

@@ -12,8 +12,8 @@ namespace Avianca.Models
         public DateTime? FechayHoraSalida { get; set; }       
         public string Clase { get; set; }
         public int Precio { get; set; }
-      
-       
+        public string Status { get; set; }
+
 
         // public DateTime? FechaReserva { get; set; }
     }

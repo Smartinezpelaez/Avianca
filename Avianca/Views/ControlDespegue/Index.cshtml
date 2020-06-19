@@ -4,15 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
+<div class="jumbotron text-center img-circle ">
+    <h1 class="bg-danger text-capitalize"> CONTROL PISTAS  </h1>
+    <a href="Reservas/Index">
+    </a>
+</div>
 <p>
-    <a asp-action="Create">Create New</a>
+    @Html.ActionLink(" Create", "Create", "Reservas", null, new { @class = "btn btn-primary fas fa-plus circle" })
 </p>
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>
+            <th style="visibility:hidden">
                 @Html.DisplayNameFor(model => model.IdDespegue)
             </th>
             <th>
@@ -36,35 +39,54 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDespegue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pista)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                <!-- weather widget start --><a target="_blank" href="https://hotelmix.es/weather/cali-19115"><img src="https://w.bookcdn.com/weather/picture/21_19115_1_4_3658db_250_2a48ba_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=582&anc_id=55278" alt="booked.net" /></a><!-- weather widget end -->
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechayHora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aeropuerto)
-            </td>
-            <td>
-                @Html.ActionLink("Reservar",
-           "Create",
-           "ControlDespegue",
-           new {idcontrol = item.IdDespegue, pista = item.Pista, estado=item.Estado,
-           clima = item.Clima, aeropuerto = item.Aeropuerto
-           },
-           new { @class = "btn btn-primary"})
-            </td>
-        </tr>
+            <tr>
+                <td style="visibility:hidden">
+                    @Html.DisplayFor(modelItem => item.IdDespegue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pista)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    <!-- weather widget start --><a target="_blank" href="https://hotelmix.es/weather/cali-19115"><img src="https://w.bookcdn.com/weather/picture/21_19115_1_4_3658db_250_2a48ba_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=582&anc_id=55278" alt="booked.net" /></a><!-- weather widget end -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechayHora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aeropuerto)
+                </td>
+                <td>
+                    @if (item.Estado == "Fuera de Servicio")
+                    {
+                        @Html.ActionLink("Reservar",
+        "Create",
+        "ReservaDespegues",
+        new { idcontrol = item.IdDespegue,
+            pista = item.Pista, estado = item.Estado,
+            clima = item.Clima, fechayHora = item.FechayHora,
+            aeropuerto = item.Aeropuerto
+        },
+        new { @class = "btn btn-primary disabled" } )
+
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Reservar",
+       "Create",
+       "ReservaDespegues",
+       new { idcontrol = item.IdDespegue,
+           pista = item.Pista, estado = item.Estado,
+           clima = item.Clima, fechayHora = item.FechayHora,
+           aeropuerto = item.Aeropuerto
+       },
+       new { @class = "btn btn-primary" } )
+
+                    }
+                </td>
+            </tr>
         }
     </tbody>
 </table>

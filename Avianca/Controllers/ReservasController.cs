@@ -24,8 +24,33 @@ namespace Avianca.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Reservas.ToListAsync());
-        }     
-       
+        }
+     
+       /*public async Task<IActionResult> GetSilla(Reserva reserva)
+        {
+            bool status = false;
+
+            var sillacontext = _context.Reservas
+              .Select(x => new
+              {
+                  idReserva=x.IDReserva,
+                  silla = x.Silla
+              }).Where(x => x.silla == reserva.Silla && x.idReserva ==reserva.IDReserva );
+
+            if (sillacontext.Count() == 0)
+            {
+                status = true;
+                return Json(status);
+            }
+            else
+            {
+                    return Json(Response.StatusCode = 404);
+            }
+
+
+        }*/
+
+
         [HttpPost]
         public async Task<IActionResult> SaveReservaAPI(Reserva reserva)
         {
@@ -34,6 +59,7 @@ namespace Avianca.Controllers
             if (ModelState.IsValid)
             {
                 Reserva data = new Reserva();
+
                 data.IDReserva = reserva.IDReserva;
                 data.Origen = reserva.Origen;
                 data.Destino = reserva.Destino;
@@ -42,12 +68,15 @@ namespace Avianca.Controllers
                 data.Clase = reserva.Clase;
                 data.Precio = reserva.Precio;
                 data.NombreCliente = reserva.NombreCliente;
-                data.NumeroDocumento = reserva.NumeroDocumento;               
+                data.NumeroDocumento = reserva.NumeroDocumento;
                 _context.Add(data);
+
                 await _context.SaveChangesAsync();
                 status = true;
-                return Json (status);
+                return Json(status);
+
             }
+
             return Json(status);
         }
 
@@ -69,20 +98,20 @@ namespace Avianca.Controllers
             return View(reserva);
         }
 
-        
+
         // GET: Reservas/Create
         public IActionResult Create()
         {
             return View();
         }
-       
+
 
         // POST: Reservas/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,IDReserva,Origen,Destino,FechayHoraSalida,Silla,Clase,Precio,NombreCliente,NumeroDocumento")] Reserva reserva)
+        public async Task<IActionResult> Create([Bind("ID,IDReserva,Origen,Destino,FechayHoraSalida,Silla,Clase,Precio,NombreCliente,NumeroDocumento,Status")] Reserva reserva)
         {
 
             if (ModelState.IsValid)
@@ -94,7 +123,7 @@ namespace Avianca.Controllers
 
             return Json(reserva);
         }
-       
+
 
 
 
@@ -119,7 +148,7 @@ namespace Avianca.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,IDReserva,Origen,Destino,FechayHoraSalida,Silla,Clase, Clase,Precio,NombreCliente,NumeroDocumento")] Reserva reserva)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,IDReserva,Origen,Destino,FechayHoraSalida,Silla,Clase, Clase,Precio,NombreCliente,NumeroDocumento,Status")] Reserva reserva)
         {
             if (id != reserva.ID)
             {

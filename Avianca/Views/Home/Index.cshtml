@@ -1,23 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-
-
-<div class="jumbotron">
-    <h1> Avianca S. A.</h1>
+﻿<div class="jumbotron text-center img-circle ">
+    <h1 class="bg-primary text-danger">  </h1>
+    <a href="Reservas/Index">
+        <img src="~/images/OIP nuevo.jpg" />
+    </a>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Bienvenido</h2>
-        <p>
-            AVIANCA S. A. (acrónimo de Aerovías del Continente Americano, anteriormente Aerovías Nacionales de Colombia)
-            es la mayor aerolínea que opera en Colombia. Fundada en 1919 con el nombre de SCADTA,
-            es mundialmente la segunda aerolínea más antigua después de la KLM que fue fundada 58
-            días antes y la más antigua del mundo con operaciones ininterrumpidas.
 
-
-        </p>
-    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card " style="width:350px ">
+                <a href="Reservas/Create">
+                    <img class="card-img-top" src="~/images/banner-secundario-mujer-computador.webp" alt="Card image">
+                </a>
+                <div class="card-body border shadow-sm p-4 p-lg-3 p-xl-2 bg-white">
+                    <h4 class="card-title">Compra con flexibilidad </h4>
+                    <p class="card-text">Planifica tu vuelo con mayor flexibilidad y compra tus vuelos tranquilo.</p>
+                    <div class="home-ui-procebox">
+                       
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-group">
+                            @Html.ActionLink("Conoce mas", "Home", "Index", new { @class = "btn btn-primary" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card " style="width:350px ">
+                <a href="Reservas/Create">
+                    <img class="card-img-top" src="~/images/pareja-bienvenida-aeropuerto.webp" alt="Card image">
+                </a>
+                <div class="card-body border shadow-sm p-4 p-lg-3 p-xl-2 bg-white">
+                    <h4 class="card-title">¿Tu vuelo ha sido afectado?</h4>
+                    <p class="card-text">Si ya tienes un vuelo, podrás cambiarlo sin costo de penalidad o solicitar un bono Avianca.</p>
+                    <div class="home-ui-procebox">
+                        
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-group">
+                            @Html.ActionLink("Conoce mas", "Home", "Index", new { @class = "btn btn-primary" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card " style="width:350px ">
+                <a href="Reservas/Create">
+                    <img class="card-img-top" src="~/images/banner-secundario-biocare-01.webp" alt="Card image">
+                </a>
+                <div class="card-body border shadow-sm p-4 p-lg-3 p-xl-2 bg-white">
+                    <h4 class="card-title">Te cuidamos con Avianca Biocare</h4>
+                    <p class="card-text">¡Tu seguridad es nuestra prioridad! Conoce nuestras medidas para cuidarte durante tu viaje.</p>
+                   
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-group">
+                            @Html.ActionLink("Conoce mas", "Home", "Index", new { @class = "btn btn-primary" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br /> <br /> <br />
 
 </div>

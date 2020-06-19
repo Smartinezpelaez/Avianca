@@ -4,10 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div class="jumbotron text-center img-circle ">
+    <h1 class="bg-danger text-capitalize"> CONTROL ATERRIZAJE </h1>
+    <a href="Reservas/Index">
+    </a>
+</div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @Html.ActionLink(" Create", "Create", "Reservas", null, new { @class = "btn btn-primary fas fa-plus circle" })
 </p>
 <table class="table table-bordered">
     <thead>

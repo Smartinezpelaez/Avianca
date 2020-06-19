@@ -1,0 +1,42 @@
+﻿@model Avianca.Models.ReservaDespegue
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReservaDespegue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDReservaDespegue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDReservaDespegue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pista)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pista)
+        </dd>       
+        <dt>
+            @Html.DisplayNameFor(model => model.Aeropuerto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aeropuerto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechayHora)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechayHora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -29,17 +29,19 @@ namespace Avianca.Controllers
         {
             var aviancaContext = _context.Vuelos
 
-               .Select(x => new {
+                   .Select(x => new
+                   {
+                       id = x.Id,
+                       idvuelo = x.IdVuelo,
+                       origen = x.Origen,
+                       destino = x.Destino,
+                       fechayHoraSalida = x.FechayHoraSalida,
+                       clase = x.Clase,
+                       precio = x.Precio,
+                       status = x.Status,
+                       Aerolinea = "Avianca"
+                   }).Where(x => x.status != "Inactivo" &&  x.status != "Para despegue" );
 
-                   id = x.Id,
-                   idvuelo = x.IdVuelo,
-                   origen = x.Origen,
-                   destino = x.Destino,
-                   fechayHoraSalida = x.FechayHoraSalida,                  
-                   clase = x.Clase,
-                   precio = x.Precio,                 
-                   Aerolinea = "Avianca"
-               });
             return Json(await aviancaContext.ToListAsync());
         }
 
@@ -72,7 +74,7 @@ namespace Avianca.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdVuelo,Origen,Destino,FechayHoraSalida,Clase,Precio")] Vuelos vuelos)
+        public async Task<IActionResult> Create([Bind("Id,IdVuelo,Origen,Destino,FechayHoraSalida,Clase,Precio,Status")] Vuelos vuelos)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +106,7 @@ namespace Avianca.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,IdVuelo,Origen,Destino,FechayHoraSalida,Clase,Precio")] Vuelos vuelos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,IdVuelo,Origen,Destino,FechayHoraSalida,Clase,Precio,Status")] Vuelos vuelos)
         {
             if (id != vuelos.Id)
             {

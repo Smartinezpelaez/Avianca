@@ -14,6 +14,7 @@ namespace Avianca.Data
         public DbSet<Vuelos> Vuelos { get; set; }
         public DbSet<ControlDespegue> ControlDespegue { get; set; }
         public DbSet<ControlAterrizaje> ControlAterrizaje { get; set; }
+        public DbSet<ReservaDespegue> ReservaDespegue { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,16 +24,13 @@ namespace Avianca.Data
             modelBuilder.Entity<Vuelos>().ToTable("Vuelos");
             modelBuilder.Entity<ControlDespegue>().ToTable("ControlDespegue");
             modelBuilder.Entity<ControlAterrizaje>().ToTable("ControlAterrizaje");
+            modelBuilder.Entity<ReservaDespegue>().ToTable("ReservaDespegue");
 
         }
 
-        
-
-
-       
-
-
-
+        internal class Models
+        {
+        }
     }
 
 }

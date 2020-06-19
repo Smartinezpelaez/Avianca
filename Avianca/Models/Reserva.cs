@@ -16,5 +16,6 @@ namespace Avianca.Models
         public string NombreCliente { get; set; }
         public string NumeroDocumento { get; set; }
         public string Aerolinea { get; set; }
+        public string Status { get; set; }
     }
 }
